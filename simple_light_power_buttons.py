@@ -15,9 +15,9 @@ import bpy
 from bpy.types import Operator
 from bpy.props import FloatProperty
 
-class OBJECT_OT_double_intensity(Operator):
+class OBJECT_OT_double_light_intensity(Operator):
     """Double Light intensity"""
-    bl_idname = "object.double_intensity"
+    bl_idname = "object.double_light_intensity"
     bl_label = "Power * 2"
     bl_options = {'REGISTER', 'UNDO'}
     bl_description = "Shift: *= 1.1, ctrl: *= 5"
@@ -45,9 +45,9 @@ class OBJECT_OT_double_intensity(Operator):
         self.execute(context)
         return {'FINISHED'}
 
-class OBJECT_OT_half_intensity(Operator):
+class OBJECT_OT_half_light_intensity(Operator):
     """Half Light intensity"""
-    bl_idname = "object.half_intensity"
+    bl_idname = "object.half_light_intensity"
     bl_label = "Power / 2"
     bl_options = {'REGISTER', 'UNDO'}
     bl_description = "Shift: /= 1.1, ctrl: /= 5"
@@ -79,22 +79,22 @@ class OBJECT_OT_half_intensity(Operator):
 def intensity_buttons(self, context):
     row = self.layout.row()
     row.operator(
-        OBJECT_OT_double_intensity.bl_idname,
-        icon='PLUGIN')
+        OBJECT_OT_double_light_intensity.bl_idname,
+        icon='SORT_DESC')
     row.operator(
-        OBJECT_OT_half_intensity.bl_idname,
-        icon='PLUGIN')
+        OBJECT_OT_half_light_intensity.bl_idname,
+        icon='SORT_ASC')
 
 def register():
-    bpy.utils.register_class(OBJECT_OT_double_intensity)
-    bpy.utils.register_class(OBJECT_OT_half_intensity)
+    bpy.utils.register_class(OBJECT_OT_double_light_intensity)
+    bpy.utils.register_class(OBJECT_OT_half_light_intensity)
     bpy.types.CYCLES_LIGHT_PT_light.prepend(intensity_buttons)
     bpy.types.DATA_PT_EEVEE_light.prepend(intensity_buttons)
 
 
 def unregister():
-    bpy.utils.unregister_class(OBJECT_OT_double_intensity)
-    bpy.utils.unregister_class(OBJECT_OT_half_intensity)
+    bpy.utils.unregister_class(OBJECT_OT_double_light_intensity)
+    bpy.utils.unregister_class(OBJECT_OT_half_light_intensity)
     bpy.types.CYCLES_LIGHT_PT_light.remove(intensity_buttons)
     bpy.types.DATA_PT_EEVEE_light.remove(intensity_buttons)
 
