@@ -6,7 +6,7 @@ bl_info = {
     "location": "Properties -> Top of Light Panel",
     "description": "Double / Half Light Power Buttons",
     "warning": "",
-    "doc_url": "",
+    "doc_url": "https://github.com/florianfelix/simple_blender_addons",
     "category": "Lighting",
 }
 
