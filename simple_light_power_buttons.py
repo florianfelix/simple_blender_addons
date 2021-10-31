@@ -79,11 +79,11 @@ class OBJECT_OT_half_light_intensity(Operator):
 def intensity_buttons(self, context):
     row = self.layout.row()
     row.operator(
-        OBJECT_OT_double_light_intensity.bl_idname,
-        icon='SORT_DESC')
-    row.operator(
         OBJECT_OT_half_light_intensity.bl_idname,
         icon='SORT_ASC')
+    row.operator(
+        OBJECT_OT_double_light_intensity.bl_idname,
+        icon='SORT_DESC')
 
 def register():
     bpy.utils.register_class(OBJECT_OT_double_light_intensity)
