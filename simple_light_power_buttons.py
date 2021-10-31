@@ -89,12 +89,14 @@ def register():
     bpy.utils.register_class(OBJECT_OT_double_intensity)
     bpy.utils.register_class(OBJECT_OT_half_intensity)
     bpy.types.CYCLES_LIGHT_PT_light.prepend(intensity_buttons)
+    bpy.types.DATA_PT_EEVEE_light.prepend(intensity_buttons)
 
 
 def unregister():
     bpy.utils.unregister_class(OBJECT_OT_double_intensity)
     bpy.utils.unregister_class(OBJECT_OT_half_intensity)
     bpy.types.CYCLES_LIGHT_PT_light.remove(intensity_buttons)
+    bpy.types.DATA_PT_EEVEE_light.remove(intensity_buttons)
 
 if __name__ == "__main__":
     register()
